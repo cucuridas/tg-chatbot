@@ -23,7 +23,15 @@ Chatbot service를 제공하기 위해 docker-compose.yml 파일에서 빌드되
 
 상세 파일 설정에 관해서는 5/8 개별 설치 후 추가적인 보완작업을 진행하도록 할 예정
 
+## 2. docker-compose 실행 방법
 
-```python
+1) docker desktop, 또는 docker-engin 설치하여 docker를 통해 container를 생성할 수 있는 환경 구축   
+2) 'docker-compose.yml'이 존재하는 directory로 이동하여 'docker-compose up'명령어를 통해 container build    
+3) 'docker ps'명령어 또는 docker desktop에서 출력되는 GUI 환경을 확인하여 정상적으로 container가 생성되었는지 확인  
+4) 모든 container가 생성된 뒤 해당 service 포트로 접속하여 service가 제공되고 있는지 여부 확인   
 
-```
+<span style='background-color: #ffdce0'>확인해야할 service 관련 포트번호</span>  
+'airflow-webserver = http://localhost:8080'  
+'es01[elasticsearch] = http://localhost:9200'  
+'kib02[kibana] = http://localhost:5601'  
+
