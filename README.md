@@ -35,7 +35,8 @@ Chatbot service를 제공하기 위해 docker-compose.yml 파일에서 빌드되
 'es01[elasticsearch] = http://localhost:9200'  
 'kib02[kibana] = http://localhost:5601'  
 
-## 3. 패키지 버전 관리
-1) 가상환경을 설치(python3 내장 venv 사용)
-2) pip freeze > requirements.txt (pip 리스트 txt 파일로 저장)
-3) pip install -r requirements.txt (파일 내부의 패키지 모두 설치)
+## 3. pip 패키지 버전 관리
+1) Python 3.10 버전 사용
+2) 가상환경을 설치(python3 내장 venv 사용)
+3) pip freeze > requirements.txt (pip 리스트 txt 파일로 저장)
+4) pip install -r requirements.txt (파일 내부의 패키지 모두 설치)
