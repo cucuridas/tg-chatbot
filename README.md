@@ -35,8 +35,12 @@ Chatbot service를 제공하기 위해 docker-compose.yml 파일에서 빌드되
 'es01[elasticsearch] = http://localhost:9200'  
 'kib02[kibana] = http://localhost:5601'  
 
-## 3. pip 패키지 버전 관리
-1) Python 3.10 버전 사용
-2) 가상환경을 설치(python3 내장 venv 사용)
-3) pip freeze > requirements.txt (pip 리스트 txt 파일로 저장)
-4) pip install -r requirements.txt (파일 내부의 패키지 모두 설치)
+## 3. Airflow 내부 개발 환경 활용 방법
+ 1) Remote - Containers 확장 패키지를 VS code 에 설치
+ ![image](https://user-images.githubusercontent.com/65060314/167746124-b8bf70af-376d-48e9-8eb2-d771f31f8602.png)
+ 2) ‘ctl + shift + p’ 를 클릭 후 Remote - Containers 실행
+ ![image](https://user-images.githubusercontent.com/65060314/167746167-8d680e63-eaa7-4603-a4b4-1d62789ac0a9.png)
+ 3) 출력 되는 Continer 목록 중 'tg-chatbot_airflow-webserver_1' 클릭하여 접속
+ ![image](https://user-images.githubusercontent.com/65060314/167746189-3705f128-11a6-4215-8f48-a0dda0a2f1e0.png)
+ 4) ‘폴더열기’ 버튼을 통해 '/opt/airflow/dags' 디렉토리로 이동 
+ 5) 5.해당 폴더에서 개발 진행
