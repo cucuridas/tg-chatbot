@@ -1,20 +1,3 @@
-'''
-Copyright (c) 2020 Cisco and/or its affiliates.
-
-This software is licensed to you under the terms of the Cisco Sample
-Code License, Version 1.1 (the "License"). You may obtain a copy of the
-License at
-
-               https://developer.cisco.com/docs/licenses
-
-All use of the material herein must be in accordance with the terms of
-the License. All rights not expressly granted by the License are
-reserved. Unless required by applicable law or agreed to separately in
-writing, software distributed under the License is distributed on an "AS
-IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
-or implied.
-
-'''
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from tkinter.font import BOLD
 import urllib.request as urllib2
@@ -44,6 +27,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         print(green('    Retreive message',bold=True))
         result = send_webex_get('https://webexapis.com/v1/messages/{0}'.format(webhook['data']['id']))
         result = json.loads(result)
+    
         if webhook['data']['personEmail'] != bot_email:
             in_message = result.get('text', '').lower()
             in_message = in_message.replace(bot_name.lower(), '')
@@ -118,37 +102,6 @@ def send_webex_post(url, data):
     contents = urllib2.urlopen(request, context=ctx).read()
     return contents
     
-def index(request):
-    print(request)
-    webhook = json.loads(request.body)
-    result = send_webex_get('https://webexapis.com/v1/messages/{0}'.format(webhook['data']['id']))
-    result = json.loads(result)
-    if webhook['data']['personEmail'] != bot_email:
-        in_message = result.get('text', '').lower()
-        in_message = in_message.replace(bot_name.lower(), '')
-        if in_message.startswith('help'):
-            msg = "**How To Use:**\n- *help*, bring this help; \n- *investigate*, put your indicators in free " \
-                  "form or with types specified explicitly (<type>:\"observable\"), types:  " \
-                  "\n    - " + '  \n    - '.join(observable_types_list)
-
-            send_webex_post("https://webexapis.com/v1/messages",
-                            {"roomId": webhook['data']['roomId'], "markdown": msg})
-        else:
-            send_webex_post("https://webexapis.com/v1/messages",
-                            {"roomId": webhook['data']['roomId'], "markdown": "*Let the investigation begin...*"})
-
-            analyze_string_investigation(in_message)
-
-            send_webex_post("https://webexapis.com/v1/messages",
-                            {"roomId": webhook['data']['roomId'], "markdown": "***  \n" + '  \n'.join(investigation_report) + "\n\n***"})
-
-            send_webex_post("https://webexapis.com/v1/messages",
-                            {"roomId": webhook['data']['roomId'],
-                           "markdown": "*Mission accomplished, observe my findings above...*"})
-        investigation_report = []
-
-    return "true"
-
 
 def webex_print(header, message):
     global investigation_report
