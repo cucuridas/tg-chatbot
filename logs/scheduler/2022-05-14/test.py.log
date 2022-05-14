@@ -1,0 +1,7 @@
+[2022-05-14 09:46:59,207] {processor.py:153} INFO - Started process (PID=60680) to work on /opt/airflow/dags/test.py
+[2022-05-14 09:46:59,209] {processor.py:641} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2022-05-14 09:46:59,212] {logging_mixin.py:115} INFO - [2022-05-14 09:46:59,212] {dagbag.py:507} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2022-05-14 09:46:59,223] {processor.py:651} INFO - DAG(s) dict_keys(['hello_world']) retrieved from /opt/airflow/dags/test.py
+[2022-05-14 09:46:59,252] {logging_mixin.py:115} INFO - [2022-05-14 09:46:59,252] {dag.py:2371} INFO - Sync 1 DAGs
+[2022-05-14 09:46:59,274] {logging_mixin.py:115} INFO - [2022-05-14 09:46:59,274] {dag.py:2919} INFO - Setting next_dagrun for hello_world to 2022-05-12T12:00:00+00:00, run_after=2022-05-13T12:00:00+00:00
+[2022-05-14 09:46:59,286] {processor.py:161} INFO - Processing /opt/airflow/dags/test.py took 0.082 seconds
