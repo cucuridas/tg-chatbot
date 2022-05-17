@@ -2,10 +2,11 @@ from ast import operator
 from airflow.models.baseoperator import BaseOperator
 from airflow import DAG
 from datetime import datetime, timedelta
+from operators.login_operator import LoginOperator
 
 from sqlalchemy import desc
 with DAG(
-    'hiSeleniumDataCrawling',
+    dag_id='hiSeleniumDataCrawling',
     default_args={
         'depends_on_past': False,
         'email': ['airflow@example.com'],
@@ -20,11 +21,6 @@ with DAG(
     catchup=False,
     tags=['data import'],
 ) as dag:
-    t1 = BaseOperator(
-        task_id='crawling'
+    t1 = LoginOperator(
+        task_id='login_task'
     )
-    t2 = BaseOperator(
-        task_id='writing'
-    )
-    
-t1 >> t2
