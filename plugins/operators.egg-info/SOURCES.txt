@@ -1,0 +1,7 @@
+setup.py
+operators/__init__.py
+operators/login_operator.py
+operators.egg-info/PKG-INFO
+operators.egg-info/SOURCES.txt
+operators.egg-info/dependency_links.txt
+operators.egg-info/top_level.txt
