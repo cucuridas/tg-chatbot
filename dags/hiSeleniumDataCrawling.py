@@ -13,9 +13,9 @@ with DAG(
         'email_on_failure': False,
         'email_on_retry': False,
         'retries': 1,
-        'retry_delay': timedelta(minutes=5)
+        'retry_delay': timedelta(minutes=1)
     },
-    description="DAG for data crawling hiworks' board",
+    description="DAG for data crawling hiworks board",
     schedule_interval=timedelta(days=1),
     start_date=datetime(datetime.now().year, datetime.now().month, datetime.now().day),
     catchup=False,
